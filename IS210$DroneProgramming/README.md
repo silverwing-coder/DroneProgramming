@@ -23,7 +23,8 @@
 3. MediaPipe Application
     - Face tracking mode
     - Hand gesture control mode
-    ![Test Image](../Images/drone_demo.jpg)
+
+![Test Image](../Images/drone_demo.jpg)
 
 <h3>3. Swarm Control Example: Tello EDU</h3>
 
