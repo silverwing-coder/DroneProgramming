@@ -1,6 +1,3 @@
-# Tello drone basic movement test
-# Edited by Sangmork Park, Jan-2023
-
 """ 
 This code tests Tello drone connection to Python code and basic movement.
 Edited by Sangmork Park, Jan-2023
