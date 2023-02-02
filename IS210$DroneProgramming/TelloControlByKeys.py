@@ -1,23 +1,32 @@
-# Tello drone keyboard control and image display
-# Edited by Sangmork Park, Jan-2023
-
+""" 
+This code controls Tello drone with keyboard and displays image taken by the drone.
+Edited by Sangmork Park, Jan-2023
+"""
 from djitellopy import Tello
 import pygame
 import cv2
 from time import sleep
 
+
 # Initialize pygame object. Must be in active mode to get keyboard input.
+
+
 def initPygame():
     pygame.init()
     window = pygame.display.set_mode((300, 200))
 
+
 # Check keyboard input and returns if the pressed_key is a control key
 # Returns 'true' only if the pressed key matches with keyName
-# 'LEFT'    : move left     'RIGHT'   : move right
-# 'UP'      : move back     'DOWN'    : move forward
-# 'W'       : move up       'S'       : move down
-# 'A'       : yaw left      'D'       : yaw right
-# 'Q'       : quit flight (exit while loop)
+
+""" 
+'LEFT'    : move left     'RIGHT'   : move right
+ 'UP'      : move back     'DOWN'    : move forward
+ 'W'       : move up       'S'       : move down
+ 'A'       : yaw left      'D'       : yaw right
+"""
+
+
 def getKey(keyName):
     for event in pygame.event.get():
         pass
@@ -27,10 +36,8 @@ def getKey(keyName):
     pygame.display.update()
     return keyPressed[myKey]
 
+
 def getControlValue():
-    # frame = drone.get_frame_read().frame
-    # cv2.resize(frame, (300, 200))
-    # cv2.imshow('DRONE', frame)
 
     lr, fb, ud, yv = 0, 0, 0, 0
     speed = 50
@@ -54,10 +61,6 @@ def getControlValue():
         yv = speed
     elif getKey("d"):
         yv = -speed
-
-    if getKey("q"):
-        # drone.land()
-        exit(0)
 
     return [lr, fb, ud, yv]
 
@@ -85,6 +88,7 @@ if __name__ == '__main__':
         drone.send_rc_control(vals[0], vals[1], vals[2], vals[3])
         sleep(0.05)
 
+        # if 'q' pressed, exit while loop
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
