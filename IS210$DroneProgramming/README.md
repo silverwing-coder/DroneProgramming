@@ -4,7 +4,7 @@
 
 <br/><h3>1. Programming Environment</h3>
 
--   <u>Python Interpreter Version: 3.9.10</u> <em>(Python 3.10.x and above versions are not compatible with Tello Library)</em>
+-   <u>Python Interpreter Version: 3.9.10</u> <em>(Python 3.10.x and above versions may not be compatible with Tello Library)</em>
 -   Python Libraries
 
     -   djitellopy (numpy)
