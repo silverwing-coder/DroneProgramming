@@ -1,4 +1,4 @@
-<h4>ver:  Janurary-2023</h4>
+<h4>Update:  Jan. 2023</h4>
 
 <h2>[Python] DJI Tello Programming</h2>
 
@@ -12,7 +12,8 @@
     -   MediaPipe (pillow, absi-py, attrs, etc.)
     -   pygame (# keyboard control)
 
--   Refer to [djitellopy API](https://djitellopy.readthedocs.io/en/latest/) page</br></br>
+-   Refer to [djitellopy API](https://djitellopy.readthedocs.io/en/latest/) page</br>
+-   Refer to [MediaPipe API](https://google.github.io/mediapipe/) page</br></br>
 
 <h3>2. Single Drone Control</h3>
 
