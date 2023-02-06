@@ -14,19 +14,19 @@
 
 -   Refer to [djitellopy API](https://djitellopy.readthedocs.io/en/latest/) page</br></br>
 
-<h3>2. Single Drone Control Example</h3>
+<h3>2. Single Drone Control</h3>
 
 -   Laptop connects to drone access point
 
 1. Basic Movement Test : [BasicTest01.py](../IS210%24DroneProgramming/BasicTest01.py)
 2. Keyboard Control Test & Video : [TelloControlByKeys.py](../IS210%24DroneProgramming/TelloControlByKeys.py)
-3. MediaPipe Application
-    - Face tracking mode
-    - Hand gesture control mode
+3. MediaPipe Application (FaceMesh and Hands Tracking): <em>Go to ControlByFMH </em>
+    - Face tracking mode: Keep distance and relative position
+    - Hand gesture control mode: Face tracking mode + maneuver controlled by hand gesture
 
 ![Test Image](../Images/drone_demo.jpg)
 
-<h3>3. Swarm Control Example: Tello EDU</h3>
+<h3>3. Swarm Control (Under construction): Tello EDU</h3>
 
 -   Drones connect to a router or an access point drone access point
 
