@@ -7,6 +7,8 @@ Define functions of data extraction and control information
 
 """
 import numpy as np
+import math
+import pickle
 
 """ This function returns three points of interest on a face
     - left-upper-corner, center-point, right-lower-corner """
@@ -56,7 +58,7 @@ def getMovementControls(face_coordinates, img_size, dist_range):
         img_size[0] = width, img_size[1] = height   """
     lf_dist = abs(face_coordinates[1][0] - face_coordinates[0][0])
     rt_dist = abs(face_coordinates[2][0] - face_coordinates[1][0])
-    lr_speed = (rt_dist - lf_dist) * img_size[0] * 0.1
+    lr_speed = (rt_dist - lf_dist) * img_size[0] * 0.5
     # print(lr_speed)
 
     """ Calculate back and forward movement speed: forward(+), backward(-) """
@@ -71,15 +73,16 @@ def getMovementControls(face_coordinates, img_size, dist_range):
     # print(ud_speed)
 
     """ Calculate yaw movement speed: left(-), right(+) """
-    yaw_speed = (img_size[0]/2 - face_coordinates[1][0] * img_size[0]) * 0.01
+    yaw_speed = (img_size[0]/2 - face_coordinates[1][0] * img_size[0]) * 0.1
     # print(yaw_speed)
 
+    # print(int(lr_speed), int(fb_speed), int(ud_speed), int(yaw_speed))
     return [int(lr_speed), int(fb_speed), int(ud_speed), int(yaw_speed)]
 
 """ This function checks if a palm is in a bounding box.
     returns "True" if the palm is in the respective bounding box 
 """
-def checkHandInBox(lms, b_box):
+def checkHandInBox(lms, b_box, img_shape):
 
     """ if no hand landmarks, return False. """
     if(len(lms) < 1 ):
@@ -91,7 +94,10 @@ def checkHandInBox(lms, b_box):
     palm_lms = [lms[0], lms[1], lms[2], lms[5], lms[9], lms[13], lms[17]]
 
     for lm in palm_lms:
-        if (lm[0] < b_box[0][0]) or (lm[0] > b_box[1][0]) or (lm[1] < b_box[0][1]) or (lm[1] > b_box[1][1]):
+        lmx = lm[0] * img_shape[1]
+        lmy = lm[1] * img_shape[0]
+        # if (lm[0] < b_box[0][0]) or (lm[0] > b_box[1][0]) or (lm[1] < b_box[0][1]) or (lm[1] > b_box[1][1]):
+        if (lmx < b_box[0][0]) or (lmx > b_box[1][0]) or (lmy < b_box[0][1]) or (lmy > b_box[1][1]):
             # return False
             palm_in_box = False
             break
@@ -145,76 +151,33 @@ def checkThumbDown(lms):
     return thumb_down
 
 
-""" This function checks if index finger is up.
-    returns "True" if index finger is up 
+""" This function checks if hand gesture is one.
+    returns "True" if index hand gesture is is one: Not in use 
 """
-def checkIndexUp(lms):
+def getHandIndex(lms, model):
 
     """ if no hand landmarks, return False. """
     if(len(lms) < 1 ):
-        return False
+        return "None"
 
-    index_up = True
+    ftr = []
+    origin = np.array(lms[0])
+    origin_dist = math.dist(origin, np.array(lms[5]))
+    for i in range(5):
+        for j in range(2, 5):
+            lm = lms[i*4 + j]
+            dist = math.dist(origin, np.array(lm))
+            # ratio = f'{dist/origin_dist:10.4f}'
+            # ftr.append(float(ratio))
+            # ftr.append(float(f'{dist/origin_dist:10.4f}'))
+            ftr.append(dist/origin_dist)
 
-    """ index check landmarks index: 6, 7, 8 """
-    if (lms[7][1] < lms[8][1]) or (lms[6][1] < lms[7][1]) :
-        return False
-
-    for lm in lms[9:]:
-        if (lm[1] < lms[8][1]):
-            index_up = False
-            break
-
-    return index_up
-
-
-
-""" This function checks if index finger is down.
-    returns "True" if index finger is down 
-"""
-def checkIndexDown(lms):
-
-    """ if no hand landmarks, return False. """
-    if(len(lms) < 1 ):
-        return False
-
-    index_up = True
-
-    """ index check landmarks index: 6, 7, 8 """
-    if (lms[7][1] > lms[8][1]) or (lms[6][1] > lms[7][1]):
-        return False
-
-    for lm in lms[9:]:
-        if (lm[1] > lms[8][1]):
-            index_up = False
-            break
-
-    return index_up
+    # print(ftr)
+    data = [ftr]
+    ld_model = pickle.load(open('kncpickle_file', 'rb'))
+    result = ld_model.predict(data)
+    # print(result)
+    return result
 
 
-
-""" This function checks if index and little fingers are up.
-    returns "True" if index and little fingers are up 
-"""
-def checkIndexLittleUp(lms):
-
-    """ if no hand landmarks, return False. """
-    if(len(lms) < 1 ):
-        return False
-
-    index_little_up = True
-
-    if (not checkIndexUp(lms)):
-        return False
-
-    """ little finger check landmarks index: 18, 19, 20 """
-    if (lms[18][1] < lms[19][1]) or (lms[19][1] < lms[20][1]):
-        return False
-
-    for lm in lms[9:16]:
-        if (lm[1] < lms[20][1]):
-            index_little_up = False
-            break
-
-    return index_little_up
 

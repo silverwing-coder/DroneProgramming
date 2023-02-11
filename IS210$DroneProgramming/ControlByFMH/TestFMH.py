@@ -44,6 +44,7 @@ while cap.isOpened():
     # pass by reference.
     image.flags.writeable = False
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = cv2.flip(image, 1)
     results = face_mesh.process(image)
 
     # Draw the face mesh annotations on the image.
@@ -103,7 +104,6 @@ while cap.isOpened():
     TIME_START = TIME_STOP
 
     # Flip the image horizontally for a selfie-view display.
-    image = cv2.flip(image, 1)
     cv2.putText(image, f'FPS: {int(fps)}', (400, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
     cv2.imshow('MediaPipe Holistic', image)
 

@@ -11,7 +11,7 @@ import cv2
 
 def drawTarget(image, face_points, face_length):
 
-    """ Draw face-circle """
+    """ Draw face-circle and cross """
     cv2.circle(image,
                (int(face_points[1][0] * image.shape[1]), int(face_points[1][1] * image.shape[0])), int(face_length / 4),
                (0, 0, 255), 1)
@@ -26,33 +26,31 @@ def drawTarget(image, face_points, face_length):
 
 
 def drawBoundingBox(image, face_points):
-    """ Draw face-box """
+    """ Draw face-box: Not in use """
     # cv2.rectangle(image,
     #              (int(face_points[0][0] * image.shape[1]), int(face_points[0][1] * image.shape[0])),
     #              (int(face_points[0][0] * image.shape[1]) + face_length, int(face_points[0][1] * image.shape[0]) + face_length),
     #              (0, 255, 0), 2)
 
-    """ Draw left-hand_bounding-box """
+    """ Draw left-hand_bounding-box: Not in use """
     cv2.rectangle(image,
                   (int(face_points[1][0] * image.shape[1]) - 250, int(face_points[1][1] * image.shape[0])),
                   (int(face_points[1][0] * image.shape[1]) - 100, int(face_points[1][1] * image.shape[0]) + 150),
                   (0, 255, 0), 1)
-    """ Draw right-hand_bounding-box """
+    """ Draw right-hand_bounding-box: Not in use """
     cv2.rectangle(image,
                   (int(face_points[1][0] * image.shape[1]) + 100, int(face_points[1][1] * image.shape[0])),
                   (int(face_points[1][0] * image.shape[1]) + 250, int(face_points[1][1] * image.shape[0]) + 150),
                   (0, 255, 0), 1)
 
-
+""" Draw hand control box """
 def drawGestureBox(image, face_points):
-
-    """ Draw face-box """
     cv2.rectangle(image,
-                  (int(face_points[1][0] * image.shape[1]) - 250, int(face_points[1][1] * image.shape[0]) - 250),
-                  (int(face_points[1][0] * image.shape[1]) + 250, int(face_points[1][1] * image.shape[0]) + 150),
+                  (int(face_points[1][0] * image.shape[1]) - 200, int(face_points[1][1] * image.shape[0]) - 100),
+                  (int(face_points[1][0] * image.shape[1]) + 200, int(face_points[1][1] * image.shape[0]) + 200),
                   (255, 255, 255), 1)
 
-
+""" Draw a circle on specifici hand landmarks  """
 def drawHandLamdmarks(image, hand_lms):
 
     if len(hand_lms) > 5:
