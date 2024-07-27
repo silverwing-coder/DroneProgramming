@@ -1,11 +1,23 @@
+'''
+Edited by Sangmork Park, July-2024 
+---------------------------------------------------------------------------
+This Python code is a video streaming client program.
+
+---------------------------------------------------------------------------
+'''
+
 import cv2
 import socket
 import pickle
 import struct
 
-# Create a socket client
+SERVER_IP_ADDRESS = '127.0.0.1'
+SERVER_PORT_NUMBER = 9999
+CLIENT_PORT_NUMBER = 4096
+
+# Create a client socket for streaming
 video_client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-video_client_socket.connect(('127.0.0.1', 9999))  # server IP address
+video_client_socket.connect((SERVER_IP_ADDRESS, SERVER_PORT_NUMBER))  
 
 received_data = b""
 payload_size = struct.calcsize("L")
@@ -13,7 +25,7 @@ payload_size = struct.calcsize("L")
 while True:
     # Receive and assemble the data until the payload size is reached
     while len(received_data) < payload_size:
-        received_data += video_client_socket.recv(4096)
+        received_data += video_client_socket.recv(CLIENT_PORT_NUMBER)
 
     # Extract the packed message size
     packed_msg_size = received_data[:payload_size]
@@ -22,7 +34,7 @@ while True:
 
     # Receive and assemble the frame data until the complete frame is received
     while len(received_data) < msg_size:
-        received_data += video_client_socket.recv(4096)
+        received_data += video_client_socket.recv(CLIENT_PORT_NUMBER)
 
     # Extract the frame data
     frame_data = received_data[:msg_size]

@@ -1,15 +1,28 @@
+'''
+Edited by Sangmork Park, July-2024 
+---------------------------------------------------------------------------
+This Python program build a video streaming server captured by web camera.
+
+---------------------------------------------------------------------------
+'''
+
 import cv2
 import socket
 import pickle
 import struct
 
-# Initialize video capture from the default camera
+SERVER_IP_ADDRESS = '127.0.0.1'
+SERVER_PORT_NUMBER = 9999
+CLIENT_PORT_NUMBER = 4096
+
 video_capture = cv2.VideoCapture(0)
 
-# Create a socket server
+# Create a server socket for streaming
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_socket.bind(('127.0.0.1', 9999))  # Replace with the server's IP address
-server_socket.listen(10)
+server_socket.bind((SERVER_IP_ADDRESS, SERVER_PORT_NUMBER))     
+
+# Maximum queue size of client requests: 10
+server_socket.listen(10)                    
 
 # Accept a client connection
 client_socket, client_address = server_socket.accept()
