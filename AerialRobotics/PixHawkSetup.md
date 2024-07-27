@@ -3,6 +3,8 @@
 <ol>
     <li> Download and install Ardupilot mission planner: <a href="https://ardupilot.org/planner/docs/mission-planner-installation.html">Install Ardupilot Mission Planner</a>
     </li>
-    <li> Under Costruction,    
+    <li> .....
     </li>
 </ol>
+
+<h2>//Under Costruction//</h2>
