@@ -1,7 +1,11 @@
-
 '''
-Created by Sangmork Park for keyboard input verification on pygame
-Last update: July-2024
+Edited by Sangmork Park, July-2024
+-   This Pythond code displays web-camera image and get keyboard inputs which
+    is used to control robots movement. 
+-   Image display and pressed keyboard verification are implemented on pygame library
+    
+@input: keyboard
+@output: pressed key character
 
 '''
 
@@ -18,6 +22,7 @@ screen = pygame.display.set_mode([640,480])
 pygame.display.flip()
 capture = cv2.VideoCapture(0)
 
+# variables for calculating frame-rate(fps): start, end
 start = time.time()
 while True:
     _, image = capture.read()
@@ -50,9 +55,12 @@ while True:
                 print('Left key pressed.')
             if event.key == pygame.K_RIGHT:
                 print('Right key pressed.')
+
+            # press 'q' for exit game mode    
             if event.key == pygame.K_q:
                 # cv2.destroyAllWindows()
                 capture.release()
                 pygame.quit()
                 sys.exit(0)
     start = end
+
