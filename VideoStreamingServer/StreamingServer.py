@@ -68,5 +68,5 @@ while True:
         break
 
 # Release resources
-video_capture.release()
+# video_capture.release()
 cv2.destroyAllWindows()
