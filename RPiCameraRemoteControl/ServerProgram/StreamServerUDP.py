@@ -10,7 +10,7 @@ This Python program build a video streaming server captured by web camera.
 import cv2, socket, imutils
 import base64
 
-from picamera2 import Picamera2 
+from picamera2 import Picamera2  # type: ignore
 
 BUFF_SIZE = 65536
 SERVER_IP_ADDRESS = '10.42.0.1'

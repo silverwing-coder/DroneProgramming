@@ -11,7 +11,7 @@ import socket
 import pickle
 import struct
 
-from picamera2 import Picamera2
+from picamera2 import Picamera2 # type: ignore
 
 SERVER_IP_ADDRESS = '10.42.0.1'
 VIDEO_PORT_NUMBER = 9999

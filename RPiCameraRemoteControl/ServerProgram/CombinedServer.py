@@ -12,8 +12,8 @@ import imutils
 import base64
 import threading
 
-from picamera2 import Picamera2
-from PCA9685 import PCA9685
+from picamera2 import Picamera2 # type: ignore
+from PCA9685 import PCA9685 # type: ignore
 
 # SERVER_IP_ADDRESS = '127.0.0.1'
 SERVER_IP_ADDRESS = '10.42.0.1'

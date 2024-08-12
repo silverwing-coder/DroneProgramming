@@ -1,7 +1,7 @@
 
 # import time
 
-from PCA9685 import PCA9685
+from PCA9685 import PCA9685 # type: ignore
 import socket
 import threading
 
