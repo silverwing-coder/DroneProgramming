@@ -4,8 +4,8 @@ Update: July-2024
     - Display and key inputs are on pygame
 '''
 
-import pygame                   # pip install pygame
-import cv2                      # pip install opencv-python
+import pygame                   # type: ignore
+import cv2                      
 import time
 
 video = cv2.VideoCapture(0)

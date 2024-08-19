@@ -4,7 +4,7 @@ This python code test the pygame keyboard inputs only.
 '''
 
 import time
-import pygame
+import pygame       # type: ignore
 
 def init():
     pygame.init()

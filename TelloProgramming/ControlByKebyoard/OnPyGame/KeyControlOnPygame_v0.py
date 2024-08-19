@@ -3,8 +3,8 @@ This code controls Tello drone with OpenCV keyboard and displays image on OpenCV
     - Updated by Sangmork Park, Jan-2023
 '''
 
-from djitellopy import Tello
-import pygame
+from djitellopy import Tello    # type: ignore
+import pygame                   # type: ignore
 import cv2
 from time import sleep
 

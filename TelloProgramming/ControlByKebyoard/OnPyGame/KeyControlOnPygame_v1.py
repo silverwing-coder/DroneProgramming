@@ -1,8 +1,8 @@
 # Tello drone keyboard control and image display
 # updated by Sangmork Park, July-2024
 
-from djitellopy import Tello    # pip install djitellopy
-import pygame                   # pip install pygame
+from djitellopy import Tello    # type: ignore 
+import pygame                   # type: ignore
 import time
 
 # Check keyboard input. It returns True if the pressed key matches with a control key (key_name)

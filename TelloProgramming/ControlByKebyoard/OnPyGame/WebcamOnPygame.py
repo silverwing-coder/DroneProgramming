@@ -5,7 +5,7 @@ Update: July-2024
     - Webcam image caputre is supported by OpenCV
 '''
 
-import pygame
+import pygame       # type: ignore
 import cv2
 
 capture = cv2.VideoCapture(0)
