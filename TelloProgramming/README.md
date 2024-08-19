@@ -19,9 +19,8 @@
 
 -   Laptop connects to drone access point
 
-1. Basic Movement Test : [BasicTest01.py](../IS210%24DroneProgramming/BasicTest01.py)
-2. Keyboard Control Test & Video : [TelloControlByKeys.py](../IS210%24DroneProgramming/TelloControlByKeys.py)
-3. MediaPipe Application (FaceMesh and Hands Tracking): <em>Go to ControlByFMH </em>
+1. Keyboard Control Test & Video --> ControlByKeyboard (OpenCV & PyGame) 
+2. MediaPipe Application (FaceMesh and Hands Tracking): <em>Go to ControlByFMH </em>
     - Face tracking mode: Keep distance and relative position
     - Hand gesture control mode: Face tracking mode + maneuver controlled by hand gesture
 

@@ -1,3 +1,9 @@
+'''
+This python code test the pygame keyboard inputs only.
+    - Updated in July-2023
+'''
+
+import time
 import pygame
 
 def init():
@@ -32,6 +38,8 @@ def main():
         print("Up key pressed.")
     elif getKey("DOWN"):
         print("Down key pressed.")
+
+    time.sleep(0.1)
 
 
 if __name__ == '__main__':

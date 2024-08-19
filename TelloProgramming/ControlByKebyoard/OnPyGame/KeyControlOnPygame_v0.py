@@ -1,24 +1,28 @@
-# Tello drone keyboard control and image display
-# Edited by Sangmork Park, Jan-2023
+'''
+This code controls Tello drone with OpenCV keyboard and displays image on OpenCV.
+    - Updated by Sangmork Park, Jan-2023
+'''
 
 from djitellopy import Tello
 import pygame
 import cv2
 from time import sleep
 
+
 # Initialize pygame object. Must be in active mode to get keyboard input.
 def initPygame():
     pygame.init()
     window = pygame.display.set_mode((300, 200))
 
-# Check keyboard input and returns if the pressed_key is a control key
-# Returns 'true' only if the pressed key matches with keyName
-"""
- 'LEFT'    : move left     'RIGHT'   : move right
+
+# Check keyboard input and returns True if the pressed_key matches with keyName
+'''
+'LEFT'    : move left     'RIGHT'   : move right
  'UP'      : move back     'DOWN'    : move forward
  'W'       : move up       'S'       : move down
  'A'       : yaw left      'D'       : yaw right
-"""
+'''
+
 def getKey(keyName):
     for event in pygame.event.get():
         pass
@@ -27,6 +31,7 @@ def getKey(keyName):
 
     pygame.display.update()
     return keyPressed[myKey]
+
 
 def getControlValue():
 
@@ -70,7 +75,6 @@ if __name__ == '__main__':
     while True:
 
         frame = drone.get_frame_read().frame
-
         cv2.resize(frame, (300, 200))
         cv2.imshow('DRONE', frame)
 
@@ -80,7 +84,7 @@ if __name__ == '__main__':
         drone.send_rc_control(vals[0], vals[1], vals[2], vals[3])
         sleep(0.05)
 
-        """ if 'q' pressed, break while loop """
+        # if 'q' pressed, exit while loop
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
