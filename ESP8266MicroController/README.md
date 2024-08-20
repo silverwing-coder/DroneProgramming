@@ -3,6 +3,8 @@
 
 <h3>I. ESP8266 initial Setup and connection to Laptop computer</h3>
 
+- Refer to <a href="https://github.com/esp8266"> ESP8266 Community Forum </a> page
+
 1. Connect USB: Micro-USB to Laptop
 
 2. Windows:
@@ -62,3 +64,7 @@ $ ls /dev/      # check device: AMA0
     #serial communication via UART pins
     com_port = serial.Serial('/dev/ttyAMA0', 115200, timeout=1)
 ```
+
+<h3>IV. MicroPython Programming </h3>
+
+- Refer to <a href="https://randomnerdtutorials.com/micropython-esp32-esp8266-vs-code-pymakr/">Random Nerd Tutorial Page</a> 

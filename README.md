@@ -46,4 +46,8 @@
     
     /* Includes simple libries and test codes */
 
+<h3>8. IR Thermal Image Processing </h3>
+    
+    /* I2C communication, MLX 90630 thermal camera, impage processing on opencv and mptplotlib, .... */
+
 <em><h3> - UNDER CONSTRUCTION - </h3></em>
