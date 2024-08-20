@@ -24,7 +24,7 @@
     - Face tracking mode: Keep distance and relative position
     - Hand gesture control mode: Face tracking mode + maneuver controlled by hand gesture
 
-![Test Image](../Images/drone_demo.jpg)
+![Test Image](./images/drone_demo.jpg)
 
 <h3>3. Swarm Control (Under construction): Tello EDU</h3>
 
