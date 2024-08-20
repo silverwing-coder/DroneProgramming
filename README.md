@@ -18,13 +18,13 @@
 
     3-1. GPIO Zero Test Codes
     3-2. IR Communication
-        /* Data Tx and Rx via IR, NEC Protocol, GPIO control, Data encode-decode, encrypt-decrypt, ctypes(import C-libraries on Python) .... */ 
+        /* Data Tx and Rx via IR, NEC Protocol, GPIO control, Data encode-decode, encrypt-decrypt, <br/>ctypes(import C-libraries on Python) .... */ 
     3-3. Mediapipe on Raspberry Pi
     3-4. RPi Camera Image collection suppoeted by OpenCV
     3-5. RPI Camera Remote Control
         3-5-1. Manual mode: controlled by Keyboard on Pygame
         3-5-2. Auto mode: Object tracking on YOLO-v8
-        /* Stream server-client, control server-client, multi-processing, threading, TCP/UDP communication, image processing, data serialization, encoding, and decoding .... */ 
+        /* Stream server-client, control server-client, multi-processing, threading, <br/>TCP/UDP communication, image processing, data serialization, encoding, and decoding .... */ 
     3-6. RPi GPIO Test Codes
 
 <h3>4. Tello Programming</h3>
