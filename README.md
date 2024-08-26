@@ -13,7 +13,9 @@
     
     2-1. Serial Communication with RPi 
 
-    /* Micro Controller, Ardunio IDE, Serial Communication, USB, UART .... */
+    2-2. MicroPython 
+
+    /* Micro Controller, Ardunio IDE, MicroPython, Thonny with MicroPython, Serial Communication, USB, UART .... */
 
 <h3>3. IR_Communication</h3>
 
