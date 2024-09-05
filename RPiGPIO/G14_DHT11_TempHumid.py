@@ -9,7 +9,8 @@ import dht11
 import time
 
 GPIO.setmode(GPIO.BOARD)
-myDHT = dht11.DHT11(pin=11)
+
+myDHT = dht11.DHT11(8)
 
 try:
     while True:
